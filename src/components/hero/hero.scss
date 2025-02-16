@@ -3,7 +3,7 @@
 .hero {
   height: calc(100vh - 100px);
   overflow: hidden;
-  background: linear-gradient(180deg, #0c0c1d, #111132);
+  background: #FFAC1C	;
   position: relative;
 
   .wrapper {
@@ -51,6 +51,24 @@
           margin-right: 20px;
           cursor: pointer;
           font-weight: 300;
+          transition: all 0.3s ease;
+      
+          &:hover {
+            background-color: white;
+            color: #FFAC1C;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+          }
+      
+          &:active {
+            transform: translateY(1px);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+          }
+      
+          &:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+          }
         }
       }
 
@@ -78,14 +96,14 @@
       height: 100%;
       object-fit: cover;
     }
-  }
+  } 
 
   .slidingTextContainer {
     position: absolute;
     font-size: 50vh;
     bottom: -120px;
     white-space: nowrap;
-    color: #ffffff09;
+    color: #aa611369;
     width: 50%;
     font-weight: bold;
   }

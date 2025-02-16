@@ -51,10 +51,35 @@ const Hero = () => {
             Eyoge Media Entertainment
           </motion.h1>
           <motion.div variants={textVariants} className="buttons">
-            <motion.button variants={textVariants}>
-              See the Latest Works
+            <motion.button 
+              className="button" 
+              variants={textVariants}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <span>See the Latest Works</span>
+              <motion.div 
+                className="button-bg"
+                initial={{ width: "0%" }}
+                whileHover={{ width: "100%" }}
+                transition={{ duration: 0.4, ease: "easeInOut" }}
+              />
             </motion.button>
-            <motion.button variants={textVariants}>Contact Me</motion.button>
+
+            <motion.button 
+              className="button" 
+              variants={textVariants}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <span>Contact Me</span>
+              <motion.div 
+                className="button-bg"
+                initial={{ width: "0%" }}
+                whileHover={{ width: "100%" }}
+                transition={{ duration: 0.4, ease: "easeInOut" }}
+              />
+            </motion.button>
           </motion.div>
           <motion.img
             variants={textVariants}
@@ -73,7 +98,7 @@ const Hero = () => {
         Documentaries, Short Films
       </motion.div>
       <div className="imageContainer">
-        <img src="/hero.png" alt="" />
+        <img src="/ganesh.png" alt="Ganesh" />
       </div>
     </div>
   );

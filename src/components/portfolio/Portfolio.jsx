@@ -40,7 +40,7 @@ const Single = ({ item }) => {
 
   return (
     <section >
-      <div className="container">
+      <div className="container" style={{ marginTop: "20px" }}>
         <div className="wrapper">
           <div className="imageContainer" ref={ref}>
             <img src={item.img} alt="" />
@@ -72,7 +72,7 @@ const Portfolio = () => {
   return (
     <div className="portfolio" ref={ref}>
       <div className="progress">
-        <h1>Featured Works</h1>
+        <h1 style={{ color: "white" }}>Featured Works</h1>
         <motion.div style={{ scaleX }} className="progressBar"></motion.div>
       </div>
       {items.map((item) => (
