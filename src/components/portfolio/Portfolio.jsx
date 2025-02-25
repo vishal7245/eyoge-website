@@ -5,9 +5,9 @@ import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 const items = [
   {
     id: 1,
-    title: "React Commerce",
-    img: "https://images.pexels.com/photos/18073372/pexels-photo-18073372/free-photo-of-young-man-sitting-in-a-car-on-a-night-street.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ab id ad nesciunt quo aut corporis modi? Voluptate, quos sunt dolorum facilis, id eum sequi placeat accusantium saepe eos laborum.",
+    title: "Swabhoomi (2013)",
+    img: "swabhoomi.jpg",
+    desc: "Swabhoomi is a socio-political drama directed by Ujjvwal Chatterjee, adapted from Mahasweta Devi's novel Adhoba. The film portrays the struggle of villagers in Shantigram against forced land acquisition, focusing on homemaker Saraswati Pramanik (Debasree Roy), her husband Haran (Debesh Roychowdhury), and four youths who sacrifice their lives defending their community's land rights. Set against the backdrop of events reminiscent of the Nandigram and Singur unrests, the narrative delves into the conflict between livelihood and imposed development. Jackie Shroff features as an IPS officer, with Satabdi Roy portraying his wife. The ensemble cast also includes Tapas Paul and Dimpy Mahajan.",
   },
   {
     id: 2,
