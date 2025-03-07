@@ -2,6 +2,8 @@
 
 .portfolio {
   position: relative;
+  width: 100%;
+
 
   .progress {
     position: sticky;
@@ -15,6 +17,7 @@
     @include mobile {
       padding-top: calc(100vh - 100px);
       font-size: 24px;
+      display: none;
     }
 
     .progressBar {
@@ -49,8 +52,9 @@
         height: 50%;
 
         @include mobile {
-          width: 100%;
           max-height: 300px;
+          max-width: 90vh;
+          padding: 10px;
         }
 
         img {
@@ -68,7 +72,7 @@
         flex: 1;
         display: flex;
         flex-direction: column;
-        gap: 30px;
+        gap: 20px;
 
         @include mobile {
           transform: none !important;
