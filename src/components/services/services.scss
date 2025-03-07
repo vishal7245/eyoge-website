@@ -4,6 +4,17 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding: 40px;
+  overflow: hidden;
+  max-width: 1600px;
+  margin: 0 auto;
+
+  @include mobile {
+    height: auto;
+    padding: 20px;
+    gap: 30px;
+    overflow-x: hidden;
+  }
 
   .textContainer {
     flex: 1;
@@ -16,6 +27,8 @@
       align-self: center;
       text-align: center;
       flex-direction: column;
+      margin-bottom: 20px;
+      padding: 10px;
     }
 
     p {
@@ -23,6 +36,14 @@
       font-size: 20px;
       color: gray;
       text-align: right;
+      max-width: 800px;
+
+      @include mobile {
+        text-align: center;
+        font-size: 16px;
+        padding: 0 15px;
+        max-width: 100%;
+      }
     }
 
     hr {
@@ -31,29 +52,40 @@
       border-top: 0.5px solid gray;
 
       @include mobile {
-        width: 300px;
+        width: 80%;
+        max-width: 200px;
+        margin: 15px 0;
       }
     }
   }
+  
   .titleContainer {
     flex: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 10px;
 
     @include mobile {
-      width: 100%;
+      margin: 20px 0;
+      padding: 10px;
     }
 
     .title {
       display: flex;
       align-items: center;
       gap: 50px;
+      width: 100%;
+      justify-content: center;
+      flex-wrap: wrap;
 
       @include mobile {
         flex-direction: column;
         text-align: center;
         gap: 20px;
+        padding: 0 10px;
       }
 
       img {
@@ -63,7 +95,8 @@
         object-fit: cover;
 
         @include mobile {
-          width: 200px;
+          width: 90%;
+          max-width: 200px;
           height: 50px;
         }
       }
@@ -71,9 +104,13 @@
       h1 {
         font-size: 96px;
         font-weight: 100;
+        word-wrap: break-word;
+        max-width: 100%;
 
         @include mobile {
-          font-size: 36px;
+          font-size: 32px;
+          line-height: 1.2;
+          padding: 0 10px;
         }
       }
 
@@ -85,59 +122,111 @@
         border: none;
         font-size: 24px;
         cursor: pointer;
+        transition: all 0.3s ease;
 
         @include mobile {
           font-size: 16px;
-          width: 150px;
+          width: 80%;
+          max-width: 150px;
           height: 50px;
+          margin-top: 15px;
+        }
+
+        &:hover {
+          background-color: #f0f0f0;
+          transform: translateY(-2px);
         }
       }
     }
   }
+
   .listContainer {
     flex: 2;
     display: flex;
+    width: 100%;
     max-width: 1366px;
-    margin: auto;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    gap: 20px;
 
     @include mobile {
       flex-direction: column;
-      width: 100%;
+      padding: 15px;
+      gap: 25px;
     }
 
     .box {
-      padding: 50px;
+      flex: 1;
+      min-width: 0; // Prevents flex items from overflowing
+      padding: 30px;
       border: 0.5px solid gray;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      background-color: rgba(255, 255, 255, 0.02);
 
       @include mobile {
-        border: none;
+        border: 1px solid rgba(128, 128, 128, 0.2);
         align-items: center;
-        gap: 20px;
-        padding: 10px;
+        text-align: center;
+        padding: 20px 15px;
+        margin: 0 5px;
+        background-color: rgba(255, 255, 255, 0.05);
+      }
+
+      h2 {
+        font-size: 24px;
+        margin-bottom: 15px;
+        padding: 0 10px;
+
+        @include mobile {
+          font-size: 20px;
+          padding: 0 5px;
+        }
       }
 
       p {
+        line-height: 1.5;
+        color: #888;
+        padding: 0 10px;
+        margin: 15px 0;
+
         @include mobile {
-          display: none;
+          display: block;
+          font-size: 14px;
+          padding: 0 5px;
+          color: #666;
         }
       }
 
       button {
-        padding: 10px;
+        padding: 10px 20px;
         background-color: white;
         border: none;
         cursor: pointer;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        margin-top: 20px;
+        min-width: 100px;
 
         @include mobile {
           background-color: transparent;
           border: 1px solid orange;
           border-radius: 5px;
           color: orange;
-          width: 50%;
-          padding: 5px;
+          width: 80%;
+          max-width: 120px;
+          padding: 8px;
+          font-size: 14px;
+          margin-top: 15px;
+        }
+
+        &:hover {
+          background-color: orange;
+          color: white;
+          transform: translateY(-2px);
         }
       }
     }

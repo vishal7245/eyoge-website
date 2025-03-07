@@ -21,6 +21,7 @@ const Cursor = () => {
     <motion.div
       className="cursor"
       animate={{ x: position.x - 25, y: position.y - 25 }}
+      style={{ pointerEvents: "none" }}
     ></motion.div>
   );
 };
