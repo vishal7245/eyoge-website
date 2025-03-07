@@ -1,6 +1,23 @@
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import "./services.scss";
 import { motion, useInView } from "framer-motion";
+
+const useIsMobile = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 738);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  return isMobile;
+};
 
 const variants = {
   initial: {
@@ -35,7 +52,62 @@ const boxVariants = {
 
 const Services = () => {
   const ref = useRef();
+  const isMobile = useIsMobile();
   const isInView = useInView(ref, { margin: "-100px" });
+
+  const services = [
+    {
+      title: "Cultural Documentaries",
+      description: "We delve into India's rich history, traditions, and folklore, bringing you visually stunning and deeply researched narratives."
+    },
+    {
+      title: "Short Films with a Purpose",
+      description: "Telling impactful stories that highlight social issues, human experiences, and cultural values through cinematic storytelling."
+    },
+    {
+      title: "Heritage & Art Films",
+      description: "A tribute to India's art forms, music, dance, and craftsmanship, showcasing the true spirit of our roots."
+    },
+    {
+      title: "Customized Video Production",
+      description: "From concept to screen, we craft compelling content that aligns with your vision while staying true to Indian ethos."
+    }
+  ];
+
+  if (isMobile) {
+    return (
+      <div className="services">
+        <div className="textContainer">
+          <p style={{color:"black"}}>
+            We focus on capturing the essence of India's
+          </p>
+        </div>
+        <div className="titleContainer">
+          <div className="title">
+            <img src="/film-making-2.jpg" alt="Film Making" />
+            <h1>
+              Bringing<b style={{color:"black"}}>Stories</b> to Life
+            </h1>
+          </div>
+          <div className="title">
+            <h1>
+              <b style={{color:"black"}}>Rooted</b> in Tradition.
+            </h1>
+            <button>WHAT WE DO?</button>
+          </div>
+        </div>
+        <div className="listContainer">
+          {services.map((service, index) => (
+            <div key={index} className="box">
+              <h2 style={{color:"white"}}>{service.title}</h2>
+              <p style={{color:"rgba(255, 255, 255, 0.7)"}}>{service.description}</p>
+              <button>Go</button>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <motion.div
@@ -71,24 +143,7 @@ const Services = () => {
         </div>
       </motion.div>
       <motion.div className="listContainer" variants={variants}>
-        {[
-          {
-            title: "Cultural Documentaries",
-            description: "We delve into India's rich history, traditions, and folklore, bringing you visually stunning and deeply researched narratives."
-          },
-          {
-            title: "Short Films with a Purpose",
-            description: "Telling impactful stories that highlight social issues, human experiences, and cultural values through cinematic storytelling."
-          },
-          {
-            title: "Heritage & Art Films",
-            description: "A tribute to India's art forms, music, dance, and craftsmanship, showcasing the true spirit of our roots."
-          },
-          {
-            title: "Customized Video Production",
-            description: "From concept to screen, we craft compelling content that aligns with your vision while staying true to Indian ethos."
-          }
-        ].map((service, index) => (
+        {services.map((service, index) => (
           <motion.div
             key={index}
             className="box"
