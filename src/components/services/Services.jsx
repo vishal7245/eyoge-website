@@ -101,7 +101,6 @@ const Services = () => {
             <div key={index} className="box">
               <h2 style={{color:"white"}}>{service.title}</h2>
               <p style={{color:"rgba(255, 255, 255, 0.7)"}}>{service.description}</p>
-              <button>Go</button>
             </div>
           ))}
         </div>
@@ -137,6 +136,9 @@ const Services = () => {
           <motion.button
             whileHover={{ scale: 1.05, backgroundColor: "#f0f0f0" }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => {
+              window.location.href = "#Portfolio";
+            }}
           >
             WHAT WE DO?
           </motion.button>
@@ -156,16 +158,6 @@ const Services = () => {
           >
             <h2 style={{color:"white"}}>{service.title}</h2>
             <p style={{color:"white"}}>{service.description}</p>
-            <motion.button
-              whileHover={{ 
-                scale: 1.05,
-                backgroundColor: "orange",
-                color: "white"
-              }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Go
-            </motion.button>
           </motion.div>
         ))}
       </motion.div>
