@@ -8,6 +8,7 @@ import Parallax from "./components/parallax/Parallax";
 import Portfolio from "./components/portfolio/Portfolio";
 import Services from "./components/services/Services";
 import About from "./components/about/About";
+import Upcoming from "./components/upcoming/Upcoming";
 
 const App = () => {
   return (
@@ -27,6 +28,12 @@ const App = () => {
         <Parallax type="portfolio" />
       </section>
       <Portfolio />
+      <section id="Upcoming">
+        <Parallax type="upcoming" />
+      </section>
+      <section>
+        <Upcoming />
+      </section>
       <section id="About">
         <Parallax type="about" />
       </section>

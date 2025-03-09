@@ -38,8 +38,10 @@ const Parallax = ({ type }) => {
       style={{
         background:
           type === "services"
-            ? "linear-gradient(180deg, #111132, #0c0c1d)"
-            : "linear-gradient(180deg, #111132, #505064)",
+            ? "linear-gradient(180deg,rgb(221, 131, 35),rgb(228, 148, 36))"
+            : type === "upcoming"
+            ? "linear-gradient(180deg,rgb(238, 157, 35), rgb(240, 162, 36))"
+            : "linear-gradient(180deg,rgb(239, 141, 37),rgb(209, 145, 41))",
       }}
     >
       <motion.h1 style={{ y: yText }}>
@@ -47,6 +49,8 @@ const Parallax = ({ type }) => {
           ? "What We Do?" 
           : type === "about"
           ? "Who We Are?"
+          : type === "upcoming"
+          ? "See What's Coming Soon!"
           : "What We Did?"}
       </motion.h1>
       <motion.div className="mountains"></motion.div>
