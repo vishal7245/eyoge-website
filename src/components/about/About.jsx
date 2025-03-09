@@ -1,20 +1,22 @@
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import "./about.scss";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 
 const items = [
   {
-    id: 1,
-    title: "Mr. Yogesh Agrawal",
-    img: "ya.jpeg",
-    desc: "With over three decades of excellence, Yogesh Agrawal serves as Chairman and Managing Director of Genomic Valley Biotech Limited since 1994. A Delhi University graduate with chartered and cost accountancy qualifications, his career spans from financial consulting to agro-biotechnology innovation. After successful years in merchant banking, he pursued biotechnology through international partnerships, establishing his company with the blessing of former PM Vajpayee. Beyond business, Mr. Agrawal maintains deep cultural connections through the Ram Mandir project in Mauritius and prestigious awards. Today, he focuses on revolutionizing genomics in healthcare to position India as a global leader in this field.",
+    id: 2,
+    title: "Mr. Ujjwal Chatterjee",
+    role: "Our Film Director",
+    img: "UC.jpg",
+    desc: "Ujjwal Chatterjee is an acclaimed film director whose career spans feature films, documentaries, television, and advertising. His debut 'Gondi' (1993) won a National Award, while his internationally recognized 'Escape from Taliban' received global acclaim. As founder of UCC Entertainments, he has produced numerous television serials and is currently directing 'Jungle Crows' for the Children Film Society India. His upcoming projects include 'NALINI,' a bilingual film about Rabindranath Tagore, in collaboration with Priyanka Chopra. Ujjwal serves on the Advisory Board of the Censor Board Film Certification and holds memberships in several prestigious film associations across India.",
     link: "",
   },
   {
-    id: 2,
-    title: "Mr. Ujjwal Chatterjee",
-    img: "UC.jpg",
-    desc: "Ujjwal Chatterjee is an acclaimed film director whose career spans feature films, documentaries, television, and advertising. His debut 'Gondi' (1993) won a National Award, while his internationally recognized 'Escape from Taliban' received global acclaim. As founder of UCC Entertainments, he has produced numerous television serials and is currently directing 'Jungle Crows' for the Children Film Society India. His upcoming projects include 'NALINI,' a bilingual film about Rabindranath Tagore, in collaboration with Priyanka Chopra. Ujjwal serves on the Advisory Board of the Censor Board Film Certification and holds memberships in several prestigious film associations across India.",
+    id: 1,
+    title: "Mr. Yogesh Agrawal",
+    role: "Chairman & Managing Director",
+    img: "ya.jpeg",
+    desc: "With over three decades of excellence, Yogesh Agrawal serves as Chairman and Managing Director of Genomic Valley Biotech Limited since 1994. A Delhi University graduate with chartered and cost accountancy qualifications, his career spans from financial consulting to agro-biotechnology innovation. After successful years in merchant banking, he pursued biotechnology through international partnerships, establishing his company with the blessing of former PM Vajpayee. Beyond business, Mr. Agrawal maintains deep cultural connections through the Ram Mandir project in Mauritius and prestigious awards. Today, he focuses on revolutionizing genomics in healthcare to position India as a global leader in this field.",
     link: "",
   },
 ];
@@ -36,7 +38,7 @@ const Single = ({ item }) => {
             <img src={item.img} alt="" />
           </div>
           <motion.div className="textContainer" style={{y}}>
-            <p style={{fontSize: "30px", fontWeight: "semibold"}}>{item.title}</p>
+            <p style={{fontSize: "30px", fontWeight: "semibold", marginTop: "10px"}}>{item.title}</p>
             <p style={{textAlign: "justify"}}>{item.desc}</p>
           </motion.div>
         </div>
@@ -47,10 +49,11 @@ const Single = ({ item }) => {
 
 const About = () => {
   const ref = useRef();
+  const [currentRole, setCurrentRole] = useState(items[0].role);
 
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["end end", "start start"],
+    offset: ["start start", "end end"],
   });
 
   const scaleX = useSpring(scrollYProgress, {
@@ -58,11 +61,34 @@ const About = () => {
     damping: 30,
   });
 
+  useEffect(() => {
+    const unsubscribe = scrollYProgress.on("change", (latest) => {
+      const sectionHeight = 1 / items.length;
+      const currentIndex = Math.min(
+        items.length - 1,
+        Math.floor(latest / sectionHeight)
+      );
+      setCurrentRole(items[currentIndex].role);
+    });
+
+    return () => unsubscribe();
+  }, [scrollYProgress]);
+
   return (
     <div className="about" ref={ref}>
       <div className="progress">
-        <p style={{ color: "white", fontSize: "60px", fontWeight: "bold", }}>Our Team</p>
-        {/* thickness of progress bar */}
+        <motion.p 
+          style={{ 
+            color: "white", 
+            fontSize: "60px", 
+            fontWeight: "bold",
+          }}
+          initial={{ opacity: 1 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          {currentRole}
+        </motion.p>
         <motion.div style={{ scaleX, height: "7px" }} className="progressBar"></motion.div>
       </div>
       {items.map((item) => (
