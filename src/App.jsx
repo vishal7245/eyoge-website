@@ -10,7 +10,7 @@ import Services from "./components/services/Services";
 import About from "./components/about/About";
 import Upcoming from "./components/upcoming/Upcoming";
 import Imppa from "./components/imppa/Imppa";
-
+import Gallery from "./components/gallery/Gallery";
 
 const App = () => {
   return (
@@ -38,6 +38,9 @@ const App = () => {
       </section>
       <section id="About">
         <Parallax type="about" />
+      </section>
+      <section id="Gallery">
+        <Gallery />
       </section>
       <section id="Imppa">
         <Imppa />
