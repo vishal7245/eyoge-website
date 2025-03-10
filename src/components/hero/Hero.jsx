@@ -51,6 +51,7 @@ const Hero = () => {
             Eyoge Media Entertainment
           </motion.h1>
           <motion.div variants={textVariants} className="buttons">
+            <a href="#imppa">
             <motion.button 
               className="button" 
               variants={textVariants}
@@ -65,6 +66,8 @@ const Hero = () => {
                 transition={{ duration: 0.4, ease: "easeInOut" }}
               />
             </motion.button>
+            </a>
+            
 
             <motion.button 
               className="button" 

@@ -3,7 +3,7 @@ import "./imppa.scss";
 
 const Imppa = () => {
   return (
-    <div className="imppa">
+    <div className="imppa" id="imppa">
       <motion.h1 
         className="heading"
         initial={{ opacity: 0, y: -50 }}
