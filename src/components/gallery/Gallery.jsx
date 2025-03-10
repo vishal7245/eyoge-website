@@ -40,7 +40,7 @@ const Gallery = () => {
 
   return (
     <div className="gallery-container">
-      <h2>Gallery</h2>
+      <h1>Gallery</h1>
       <div className="carousel">
         <button className="nav-button prev" onClick={prevSlide}>
           &#8249;

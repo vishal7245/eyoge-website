@@ -4,7 +4,7 @@ import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 
 const items = [
   {
-    id: 2,
+    id: 1,
     title: "Mr. Ujjwal Chatterjee",
     role: "Our Film Director",
     img: "UC.jpg",
@@ -12,7 +12,7 @@ const items = [
     link: "",
   },
   {
-    id: 1,
+    id: 2,
     title: "Mr. Yogesh Agrawal",
     role: "Chairman & Managing Director",
     img: "ya.jpeg",
@@ -38,7 +38,7 @@ const Single = ({ item }) => {
             <img src={item.img} alt="" />
           </div>
           <motion.div className="textContainer" style={{y}}>
-            <p style={{fontSize: "30px", fontWeight: "semibold", marginTop: "10px"}}>{item.title}</p>
+            <p style={{fontSize: "30px", fontWeight: "semibold"}}>{item.title}</p>
             <p style={{textAlign: "justify"}}>{item.desc}</p>
           </motion.div>
         </div>
@@ -49,11 +49,10 @@ const Single = ({ item }) => {
 
 const About = () => {
   const ref = useRef();
-  const [currentRole, setCurrentRole] = useState(items[0].role);
 
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start start", "end end"],
+    offset: ["end end", "start start"],
   });
 
   const scaleX = useSpring(scrollYProgress, {
@@ -61,34 +60,10 @@ const About = () => {
     damping: 30,
   });
 
-  useEffect(() => {
-    const unsubscribe = scrollYProgress.on("change", (latest) => {
-      const sectionHeight = 1 / items.length;
-      const currentIndex = Math.min(
-        items.length - 1,
-        Math.floor(latest / sectionHeight)
-      );
-      setCurrentRole(items[currentIndex].role);
-    });
-
-    return () => unsubscribe();
-  }, [scrollYProgress]);
-
   return (
     <div className="about" ref={ref}>
       <div className="progress">
-        <motion.p 
-          style={{ 
-            color: "white", 
-            fontSize: "60px", 
-            fontWeight: "bold",
-          }}
-          initial={{ opacity: 1 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          {currentRole}
-        </motion.p>
+        <p style={{ color: "white", fontSize: "60px", fontWeight: "bold" }}>Our Team</p>
         <motion.div style={{ scaleX, height: "7px" }} className="progressBar"></motion.div>
       </div>
       {items.map((item) => (

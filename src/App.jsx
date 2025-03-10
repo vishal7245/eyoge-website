@@ -39,9 +39,7 @@ const App = () => {
       <section id="About">
         <Parallax type="about" />
       </section>
-      <section id="About">
-        <About />
-      </section>
+      <About />
       <section id="Gallery">
         <Gallery />
       </section>
