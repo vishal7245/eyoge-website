@@ -9,6 +9,8 @@ import Portfolio from "./components/portfolio/Portfolio";
 import Services from "./components/services/Services";
 import About from "./components/about/About";
 import Upcoming from "./components/upcoming/Upcoming";
+import Imppa from "./components/imppa/Imppa";
+
 
 const App = () => {
   return (
@@ -37,7 +39,9 @@ const App = () => {
       <section id="About">
         <Parallax type="about" />
       </section>
-      <About />
+      <section id="Imppa">
+        <Imppa />
+      </section>
       <section id="Contact">
         <Contact />
       </section>

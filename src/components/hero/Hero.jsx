@@ -57,7 +57,7 @@ const Hero = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <span>See the Latest Works</span>
+              <span>IMPPA</span>
               <motion.div 
                 className="button-bg"
                 initial={{ width: "0%" }}
@@ -71,6 +71,7 @@ const Hero = () => {
               variants={textVariants}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => window.open("https://wa.me/919811341542", "_blank")}
             >
               <span>Contact Me</span>
               <motion.div 
