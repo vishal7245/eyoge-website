@@ -19,6 +19,36 @@ const Gallery = () => {
     },
     {
       url: "/i5.jpeg",
+    },
+    {
+      url: "/e1.jpeg",
+    },
+    {
+      url: "/e2.jpeg",
+    },
+    {
+      url: "/e3.jpeg",
+    },
+    {
+      url: "/e4.jpeg",
+    },
+    {
+      url: "/e5.jpeg",
+    },
+    {
+      url: "/e6.jpeg",
+    },
+    {
+      url: "/e7.jpeg",
+    },
+    {
+      url: "/e8.jpeg",
+    },
+    {
+      url: "/e9.jpeg",
+    },
+    {
+      url: "/e10.jpeg",
     }
   ];
 
